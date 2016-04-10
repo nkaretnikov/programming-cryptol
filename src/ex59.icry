@@ -1,0 +1,2 @@
+:l ex59.cry
+:prove \(x : [8], xs : [64][8]) -> elem (x,xs) == elem' (x,xs)

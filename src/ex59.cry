@@ -1,0 +1,13 @@
+module ex59 where
+
+import ex53
+
+elem : {n,t} (fin n, Cmp t) => (t, [n]t) -> Bit
+elem (y,xs) = any (\x -> y == x) xs
+
+elem' : {n,t} (fin n, Cmp t) => (t, [n]t) -> Bit
+elem' (q,xs) = ys ! 0
+  where
+    ys = [False] # [ y || (x == q) | x <- xs
+                                   | y <- ys
+                   ]
