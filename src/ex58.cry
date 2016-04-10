@@ -1,0 +1,30 @@
+module ex58 where
+
+sumAll : {n,a} (fin n, fin a) => [n][a] -> [a]
+sumAll xs = (sumAll' xs) ! 0
+
+sumAll' xs = ys
+  where
+    ys = [0] # [ x + y | x <- xs
+                       | y <- ys
+               ]
+/*
+sumAll' [1,2,3]
+[0] # [ 1 + 0 | 1 <- xs
+              | 0 <- ys
+      ]
+[0,1] # [ 2 + 1 | 2 <- xs
+                | 1 <- ys
+        ]
+[0,1,3] # [ 3 + 3 | 3 <- xs
+                  | 3 <- ys
+          ]
+[0,1,3,6]
+
+XXX: The output size is determined based on the input, it doesn't take 'x + y'
+into account.  Is it possible to provide a generic type signature that does,
+preventing overflow?
+ex58> sumAll' [1,2,3]
+Assuming a = 2
+[0b00, 0b01, 0b11, 0b10]
+*/
