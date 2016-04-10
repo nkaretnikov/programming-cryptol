@@ -1,0 +1,31 @@
+module ex56 where
+
+// XXX: Why does 'Cmp' not propagate to the toplevel signature?
+// Does 'fin' imply 'Cmp'?
+// max : {a} (Cmp a) => a -> a -> a
+maxSeq : {a, b} (fin a, fin b) => [b][a] -> [a]
+maxSeq xs = ys ! 0
+  where ys = [0] # [ max x y | x <- xs
+                             | y <- ys
+                   ]
+
+/*
+maxSeq [2,1] = ys ! 0
+  where ys = [0] # [ max 2 0 | 2 <- xs
+                             | 0 <- ys
+                   ]
+           = [0,2] # [ max 1 2 | 1 <- xs
+                               | 2 <- ys
+                     ]
+           = [0,2,2]
+*/
+
+maxSeq' xs = ys
+  where ys = [0] # [ max x y | x <- xs
+                             | y <- ys
+                   ]
+/*
+ex56> maxSeq' [2,1]
+Assuming a = 2
+[0, 2, 2]
+*/
