@@ -1,0 +1,13 @@
+module ex54 where
+
+isOdd : {a} (a >= 1, fin a) => [a] -> Bit
+isOdd w =
+  if w == 0
+  then False
+  else isEven (w-1)
+
+isEven : {a} (a >= 1, fin a) => [a] -> Bit
+isEven w =
+  if w == 0
+  then True
+  else isOdd (w-1)
