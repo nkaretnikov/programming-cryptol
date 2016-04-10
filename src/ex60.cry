@@ -1,0 +1,21 @@
+module ex60 where
+
+/*
+zipWith f xs ys =
+  [ f x y | x <- xs
+          | y <- ys
+  ]
+
+fibs : [32]Bit -> [32]Bit
+fibs n = fibs' @ n
+  where
+    // XXX: Any way to make this work instead?
+    fibs' = [0,1]#(zipWith (+) fibs' (tail fibs'))
+*/
+
+fibs : [32]Bit -> [32]Bit
+fibs n = fibs' @ n
+  where
+    fibs' = [0,1] # [ x + y | x <- fibs'
+                            | y <- tail fibs'
+                    ]
