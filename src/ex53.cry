@@ -1,0 +1,5 @@
+module ex53 where
+
+any : {n,a} (fin n) => (a -> Bit) -> [n]a -> Bit
+any f xs =
+  [ f x | x <- xs ] > zero
