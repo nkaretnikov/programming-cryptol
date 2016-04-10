@@ -1,0 +1,4 @@
+module ex51 where
+
+butLast : {n,w} (fin n) => [n+1]w -> [n]w
+butLast xs = reverse (tail (reverse xs))
