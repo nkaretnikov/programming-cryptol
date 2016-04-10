@@ -1,0 +1,5 @@
+:l ex55.cry
+:prove isEven 0
+:prove isOdd 1
+:prove \(n : [64]) -> isOdd n == isEven (n-1)
+:prove \(n : [64]) -> isOdd (n-1) == isEven n
