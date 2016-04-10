@@ -19,13 +19,3 @@ maxSeq [2,1] = ys ! 0
                      ]
            = [0,2,2]
 */
-
-maxSeq' xs = ys
-  where ys = [0] # [ max x y | x <- xs
-                             | y <- ys
-                   ]
-/*
-ex56> maxSeq' [2,1]
-Assuming a = 2
-[0, 2, 2]
-*/

@@ -1,0 +1,11 @@
+module ex57 where
+
+maxSeq' xs = ys
+  where ys = [0] # [ max x y | x <- xs
+                             | y <- ys
+                   ]
+/*
+ex56> maxSeq' [2,1]
+Assuming a = 2
+[0, 2, 2]
+*/
