@@ -1,0 +1,3 @@
+module ex63 where
+
+cmpArith x y z = if x > y then z else z + z
