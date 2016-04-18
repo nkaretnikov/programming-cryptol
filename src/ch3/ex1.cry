@@ -1,0 +1,11 @@
+module ex1 where
+
+caesar : {n} ([8], String n) -> String n
+caesar (s, msg) = [ shift x | x <- msg ]
+  where map = ['A' .. 'Z'] <<< s
+        shift c = map @ (c - 'A')
+
+caesar' : {n} ([8], String n) -> String n
+caesar' (s, msg) = [ shift x | x <- msg ]
+  where map = ['A' .. 'Z'] >>> s
+        shift c = map @ (c + 'A')

@@ -1,0 +1,10 @@
+:set ascii=on
+['A'..'Z'] <<< 2
+['A'..'Z'] >>> 2
+
+:l ex1.cry
+:prove caesar (7,"") == caesar' (7,"")
+:prove caesar (7,"a") == caesar' (7,"a")
+:prove caesar (7,"foo") == caesar' (7,"foo")
+:prove caesar (0,"foo") == caesar' (0,"foo")
+:prove caesar (26,"foo") == caesar' (26,"foo")
